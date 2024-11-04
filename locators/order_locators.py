@@ -29,6 +29,7 @@ class OrderFormLocators2:
     CHECKBOX_GREY_COLOR = By.XPATH, ".//*[contains(@id, 'grey')]"
     FIELD_COMMENT_FOR_COURIER = By.XPATH, ".//input[@placeholder='Комментарий для курьера']"
     BUTTON_TO_ORDER_IN_FORM = By.XPATH, ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"
+    DELIVERY_DATE_TOMORROW = By.XPATH, "//div[contains(@class, 'today')]/following-sibling::div[1]"
 
 class OrderPopUpLocators:
     BUTTON_YES_ORDER = By.XPATH, ".//*[contains(text(), 'Да')]"

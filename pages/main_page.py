@@ -7,7 +7,7 @@ class HomePage(BasePage):
     def check_question_text(self, num):
         locator_q_formatted = self.format_to_locator(MainPageLocators.LOCATOR_QUESTION, num)
         self.scroll_to_element(MainPageLocators.LOCATOR_QUESTION_8)
-        self.find_element_webdriver_wait(locator_q_formatted)
+        self.find_element(locator_q_formatted)
         return self.get_text_from_element(locator_q_formatted)
 
     @allure.step('Получить текст ответов')

@@ -4,7 +4,7 @@ from data import Url, Questions, Answers
 from pages.main_page import HomePage
 import random
 
-@allure.title('Тесты на соответствие текста в вопросах и ответах')
+@allure.feature('Тесты на соответствие текста в вопросах и ответах')
 class TestHomePage:
     @pytest.mark.parametrize(
         'num, question, answer',

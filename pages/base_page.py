@@ -7,9 +7,8 @@ class BasePage:
         self.driver = driver
         self.time = time
 
-    def find_element_webdriver_wait(self, locator):
-        WebDriverWait(self.driver, self.time).until(EC.visibility_of_element_located(locator))
-        return self.driver.find_element(*locator)
+    def find_element(self, locator):
+        return WebDriverWait(self.driver, self.time).until(EC.visibility_of_element_located(locator))
 
     def click_element(self, locator):
         WebDriverWait(self.driver, self.time).until(EC.element_to_be_clickable(locator))
@@ -20,8 +19,8 @@ class BasePage:
         self.driver.find_element(*locator).send_keys(text)
 
     def get_text_from_element(self, locator):
-        WebDriverWait(self.driver, self.time).until(EC.visibility_of_element_located(locator))
-        return self.driver.find_element(*locator).text
+        element = self.find_element(locator)
+        return element.text
 
     def format_to_locator(self, locator_1, num):
         method, locator = locator_1
@@ -29,5 +28,15 @@ class BasePage:
         return method, locator
 
     def scroll_to_element(self, locator):
-        element = WebDriverWait(self.driver, self.time).until(EC.visibility_of_element_located(locator))
+        element = self.find_element(locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    def get_url(self):
+        return self.driver.current_url
+
+    def open_page(self, url):
+        self.driver.get(url)
+
+    def switch_to_new_window(self):
+        self.driver.switch_to.window(self.driver.window_handles[1])
+
