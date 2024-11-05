@@ -14,7 +14,7 @@ class Logo(BasePage):
     @allure.step('Клик по логотипу "Самокат" для перехода на домашнюю страницу')
     def check_logo_scooter_change_url_home_page(self):
         self.click_element(LogoLocators.LOGO_SCOOTER)
-        return self.driver.current_url
+        return self.get_url()
 
     @allure.step('Открыть страницу "Самокат"')
     def open_main_page(self):
@@ -22,7 +22,7 @@ class Logo(BasePage):
 
     @allure.step('Проверка открытия Dzen')
     def check_dzen_logo(self):
-        return self.find_element(LogoLocators.DZEN_HEADER)
-
+        self.find_element(LogoLocators.DZEN_HEADER)
+        return self.get_url()
 
 

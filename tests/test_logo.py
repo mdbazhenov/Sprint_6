@@ -16,7 +16,8 @@ class TestLogo:
         logo.open_main_page()
         logo.click_logo_yandex()
         logo.switch_to_new_window()
-        assert logo.check_dzen_logo, "Главная страница Я.Дзен не открылась"
+        new_url = logo.check_dzen_logo()
+        assert Url.URL_DZEN in new_url
 
     @allure.title('Проверка перехода на домашнюю страницу "ЯндексСамокат" при клике на логотип "Самокат"')
     @allure.description(

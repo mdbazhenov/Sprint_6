@@ -20,18 +20,6 @@ class OrderPage(BasePage):
         return self.find_element(OrderFormLocators1.FIELD_NAME)
 
     @allure.step('Заполнить форму заказа')
-    # @pytest.mark.parametrize(
-    #     "name, last_name, address, metro, phone, calendar_date, rental_day, comment_for_courier",
-    #     [
-    #         (AuthData.name_1, AuthData.last_name_1, AuthData.address_1, OrderFormLocators1.METRO_CHERKIZOVSKAYA,
-    #          AuthData.phone_1, OrderFormLocators2.CALENDAR_DATA_30, OrderFormLocators2.RENT_1_DAY,
-    #          AuthData.comment_empty),
-    #         (AuthData.name_2, AuthData.last_name_2, AuthData.address_2, OrderFormLocators1.METRO_SOKOLNIKI,
-    #          AuthData.phone_2, OrderFormLocators2.CALENDAR_DATA_31, OrderFormLocators2.RENT_3_DAYS,
-    #          AuthData.comment_for_courier_1)
-    #     ],
-    #     ids=['Оформление заказа с данными пользователя 1', 'Оформление заказа с данными пользователя 2']
-    # )
     def add_user_data_to_form_order(self, name, last_name, address, metro, phone, rental_day,
                                     comment_for_courier):
         self.click_element(CookieBar.ACCEPT_COOKIE)
